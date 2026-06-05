@@ -1,14 +1,17 @@
 #include <iostream>
 #include <string>
 
-void get_name(std::string user_name){
+std::string get_name(){
+    std::string user_name;
     std::cout<<"Please enter your name: ";
-    std::cin>>user_name;
-    std::cout<<std::endl;
-    std::cout<<"Well come "<<user_name<<std::endl;
+    getline(std::cin,user_name);
+    return user_name;
+}
+void wellcome_user(std::string user){
+    std::cout<<"Well come "<<user<<std::endl;
 }
 int main(){
-    std::string user;
-    get_name(user);
+    std::string user = get_name();
+    wellcome_user(user);
     return 0;
 }
