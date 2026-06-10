@@ -1,6 +1,6 @@
 #include <iostream>
 #include <mysql/mysql.h>
-// g++ MySQL_Join.cpp -o MySQL_Join -I/opt/homebrew/opt/mysql-client/include -L/opt/homebrew/opt/mysql-client/lib -lmysqlclient
+// g++ MySQL_Join.cpp -o MySQL_Join -I/opt/homebrew/opt/mysql-client/include -L/opt/homebrew/opt/mysql-client/lib -lmysqlclient && ./MySQL_Join
 int main(){
     MYSQL* conn = mysql_init(NULL);
     // Boilerplate: Connecting to your local MySQL
@@ -27,5 +27,6 @@ int main(){
         }
     }
     mysql_close(conn);
+    remove("Delete_exe");
     return 0;
 }
