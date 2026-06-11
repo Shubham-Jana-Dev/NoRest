@@ -1,0 +1,123 @@
+To test your readiness for tomorrow, here are some practical SQL query challenges based on your syllabus. Try executing these in your terminal using your Customers table or by creating temporary test tables.
+### DDL & DML Practice
+ 1. Write a query to create a table named Orders with an OrderID (Primary Key), CustomerID, and OrderDate.
+ 
+ Ans. Create table Oredrs(oredrId int auto_increment primary key, CustomerId int unique, oredDate date);
+ 
+ 
+ 
+ 2. Write a query to add a new column named Email (VARCHAR(100)) to your existing Customers table.
+ 
+ Ans. Alter table orders add Email VARCHAR(100);
+ 
+ 
+ 
+ 3. Write a query to insert three records into your Customers table in a single statement.
+ 
+ Ans. insert into Orders values(142, 1453, '2006-03-17', "shubham@outlook.com"),(NULL, 4532, '2003-09-23', "Shrijan@gmail.com"),(545, 6786, '2005-10-23', "suresh@outlook.com");
+
+
+
+ 4. Write a query to change the CountryName of all records where the CountryName is 'India' to 'Bharat'.
+ 
+ Ans. update Customers set countryName = "Bharat" where countryName = "India";
+
+
+
+ 5. Write a query to remove all records from the Customers table, but keep the table structure intact (do not use DROP).
+ 
+ Ans. truncate Customers;
+ 
+ 
+
+### DQL & Relational Algebra Practice
+ 6. Write a query to display only the CustomerName and Phone_number for all customers whose age is greater than 18.
+ 
+ Ans. select customername, Phone_number from Customers;
+
+
+
+ 7. Write a query to find the total number of customers, but exclude any records where the age is NULL.
+ 
+ Ans. select count(customerName) from Customers where age  IS NOT NULL;
+ 
+ 
+ 
+ 8. Write a query to join Customers with an imaginary Orders table (using CustomerID) to show which customer placed which order.
+ 
+ Ans. select CustomerName from Customers inner join orders on customers.customerid = orders.oredrid where order_status = 'plaseced';
+ 
+ 
+ 
+ 9. Write a query to perform a LEFT JOIN between Customers and a Payments table to show all customers, even those who have not made any payments.
+ 
+ Ans. select CustomerName from customers left join payment on customers.pay_status = payment.payment_status;
+
+
+
+ 10. Write a query to select the distinct CountryName values from the Customers table.
+### TCL Practice
+ 11. Write the sequence of commands to start a transaction, update a customer's age, create a SAVEPOINT named SP1, delete a different customer, and then ROLLBACK to SP1.
+Are you going to try running these in your terminal to verify the results, or do you want to move on to the next set of questions?
+
+
+****
+update customers set customerid = case CustomerName when 'Mahi' then 122 when 'Raman' then 545 end where CustomerName in ("Mahi","Raman");
+**** multipla vlaues update
+
+Phase 1: Pattern Matching (LIKE)
+1. Write a query to display all details of students whose student_name starts with the letter 'S'.
+
+Ans. Select * from student where student_name like "S%";
+
+2. Write a query to find all students whose phone number ends with the digit '3'.
+
+Ans. Select * from student where phone like "%3";
+
+3. Write a query to find all students whose name contains the letter 'a' anywhere.
+
+Ans. SELECT * FROM student WHERE Student_name LIKE "%a%";
+
+4. Write a query to find the total number of students currently stored in the student table.
+
+Ans. SELECT count(*) FROM student;
+
+5. Write a query to find the average Age of all students.
+
+Ans. SELECT AVG(Age) from student;
+
+6. Write a query to display each unique Age and count how many students belong to that age group.
+
+Ans. Select Age, count(*) from student group by Age;
+
+7. Write a query to display the Age groups that have more than 1 student.
+
+Ans. Select Age from student group by Age having count(*) >1 ;
+
+8. Write a query to find the complete details (all columns) of the student(s) with the minimum roll number using a subquery.
+
+Ans. SELECT * FROM student where roll = (select Min(roll) from student);
+
+9. Without using the LIMIT clause, write a subquery to find the second lowest roll number in the table.
+
+Ans. SELECT min(roll) FROM student where roll > (select min(roll) from student);
+
+10. Write a query to find all students who are older than the average age of the class.
+
+Ans. SELECT student_name from student where Age > (Select avg(Age) from student);
+
+11. Write a query to display the names of the top 2 oldest students.
+
+Ans. SELECT student_name from student Order by Age Desc limit 2;
+
+12. Write a query to find the roll number of the student with the 3rd highest roll number using LIMIT and OFFSET.
+
+Ans. SELECT roll from student Order by roll desc limit 1 offset 2;
+
+13. Write the command to completely remove the phone column from your student table.
+
+Ans. Alter table student drop column phone;
+
+14. What is the exact command you would write if you wanted to clear all rows from the orders table instantly and reset any auto-incrementing IDs, without deleting the table structure itself?
+
+Ans. truncate orders;
