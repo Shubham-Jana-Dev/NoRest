@@ -27,6 +27,7 @@ int main(){
         }
     }
     mysql_close(conn);
+    remove("MySQL_select_all");
     return 0;
 }
 

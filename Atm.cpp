@@ -29,17 +29,30 @@ double withdrawal(double c_bal){
     double final_balance = c_bal - amount;
     return final_balance;
 }
+double deposit(double c_bal){
+    double dep_amount;
+    std::cout<<"Enter the amount of Deposit: ";
+    std::cin>> dep_amount;
+    double final_balance = c_bal + dep_amount;
+    return final_balance;
+    
+}
 void display_final_balance(double f_bal){
     std::cout<<"Your final balance is "<<f_bal<<std::endl;
 }
 
 void ask_for_request(double curent_bal){
-    std::cout<<"Press 1 for amount withdrawal: ";
+    std::cout<<"Press 1 for amount withdrawal. " << "\nAnd press 2 for amount deposit.";
+    
     int ask;
     std::cin>>ask;
     std::cout<<std::endl;
     if(ask == 1){
         double final_bal = withdrawal(curent_bal);
+        display_final_balance(final_bal);
+    }
+    else if(ask == 2){
+        double final_bal = deposit(curent_bal);
         display_final_balance(final_bal);
     }
     else{
@@ -57,6 +70,7 @@ int main(){
     display_bal(bal);
     
     ask_for_request(bal);
+    remove("Atm");
     
     return 0;
 }

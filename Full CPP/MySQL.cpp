@@ -34,5 +34,6 @@ int main(){
         std::carr <<"# ERR: "<< e.what() << "(MySQL error code: "<< e.getError() << ")" <<std::endl;
         return 1;
     }
+    remove("MySQL")
     return 0;
 }

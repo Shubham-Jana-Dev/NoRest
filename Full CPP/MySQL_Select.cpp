@@ -27,6 +27,7 @@ int main(){
             mysql_free_result(res);
         }
     }
+    remove("MySQL_Select");
     mysql_close(conn);
     return 0;
 }

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <mysql/mysql.h>
-// g++ MySQL_rightjoin.cpp -o MySQL_rightjoin -I/opt/homebrew/opt/mysql-client/include -L/opt/homebrew/opt/mysql-client/lib -lmysqlclient && ./MySQL_rightjoin
+// g++ MySQL_right_join.cpp -o MySQL_right_join -I/opt/homebrew/opt/mysql-client/include -L/opt/homebrew/opt/mysql-client/lib -lmysqlclient && ./MySQL_right_join
 int main(){
     MYSQL* conn = mysql_init(NULL);
     // Boilerplate
@@ -27,6 +27,7 @@ int main(){
         }
     }
     mysql_close(conn);
+    remove("MySQL_right_join");
     return 0;
 }
 
