@@ -18,7 +18,7 @@ void check_palindrome(){
             reversed_variable = reversed_variable + variable[i];
     }
     
-    if (variable == reversed_variable){
+    if (variable   == reversed_variable){
         std::cout << variable << " is a palindrome."<<std::endl;
     } else{
         std::cout << variable << " is not a palindrome." << std::endl;
