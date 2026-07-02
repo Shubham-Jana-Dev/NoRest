@@ -7,6 +7,7 @@
 #include <iostream>
 #include <vector>
 class statics{
+public:
     std::vector<int> theArrayCreation(){
         std::vector<int> myArray = { };
         int sizeOfArray = 0;
@@ -21,18 +22,21 @@ class statics{
         return myArray;
        
     }
-    int persentaile_calculation(const std::vector<int>& array, int num){
+    double persentaile_calculation(const std::vector<int>& array){
+        if (array.empty()) return 0.0;
+        double num = 0;
+        std::cout << "Enter the score: ";
+        std::cin >> num;
         int count = 0;
         for (int i : array){
-            if ( j < num){
+            if ( i < num){
                 count ++;
             }
         }
-        int persentaile = (count/(array.size())) * 100;
-        return persentaile;
+         return (count*100.0)/(array.size());
     }
     std::vector <int> Sort_array(std::vector<int> theArray){
-        aSize = theArray.size();
+        int aSize = theArray.size();
         int temp = 0;
         for (int i = 0; i<aSize; i++){
             for(int j = i+1; j <aSize; j++){
@@ -47,6 +51,10 @@ class statics{
     }
 };
 int main() {
-    
+    statics s1;
+    std::vector<int> usersArray = s1.theArrayCreation();
+    std::vector<int> sortedArray = s1.Sort_array(usersArray);
+    double percentile = s1.persentaile_calculation(sortedArray);
+    std::cout << "the percentile of the given dataset is " << percentile << std::endl;
     return 0;
 }
